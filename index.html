@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <h3>socketMusic: wireless (2015)</h3>
+	  <h4>for percussion, electronics, and cell mobile devices</h4>
+	  <h3>by Derek Kwan</h3>
+	</section>
+	
+	<section>
+	    <section><h2>background info</h2></section>
+	    <section>
+		<h3>instrumentation</h3>
+		<ul>
+		    <li>(improvised) percussion: snare drum, hi hat</li>
+		    <li>electronics: processed samples, processed percussion, synthesized sound</li>
+		    <li>mobile devices: sounds triggered by web server</li>
+		</ul>
+	    </section>
+	    <section>
+		<h3>background</h3>
+		<ul>
+		    <li>working at Stony Brook's Teaching Learning Lab (media lab) - wanted to apply computer programming to doctoral recital</li>
+		    <li>inspired by Steven Schick 2014 premiere of Lei Liang's <i>Trans</i> (2014) at Miller Theater (Columbia)</li>
+		    <ul>
+			<li>distributed stones to audience, signaled when to strike from stage</li>
+			<li>https://www.youtube.com/watch?v=5qg2Khbi1ww</li>
+		    </ul>
+		    <li>wanted an inexpensive way to do multichannel audio</li>
+		</ul>
+	    </section>
+	    <section>
+		<h3>sounds</h3>
+		<ul>
+		    <li>majority of sounds reference wireless technology (samples, synthesis)</li>
+		    <ul>
+			<li>wireless telegraph (radio waves) - Guglielmo Marconi (patented 1896)</li>
+			<li>first public radio broadcast - Lee De Forest/Metropolitan Opera (1910)</li>
+			<ul>
+			    <li>Enrico Caruso - I Pagliacci (Leoncavallo)</li>
+			    <li>Riccardo Martin - Cavalieria Rusticana (Mascagni)</li>
+			</ul>
+			<li>1200 baud modem (not quite wireless, but evokes the WiFi-enabled nature of the piece)</li>
+		    </ul>
+		</ul>
+	    </section>
+	</section>
+	<section>
+	    <section><h2>technical details</h2></section>
+	    <section>
+		<h3>software tech stack</h3>
+		<ul>
+		    <li>Pure Data</li>
+		    <ul>
+			<li>sound for on-stage speakers, scheduling</li>
+		    </ul>
+		    <li>Node.js (Macchiato/Clojurescript)</li>
+		    <ul>
+			<li>host web page</li>
+			<li>OSC communication with Pure Data</li>
+			<li>WebSocket communication with individual clients (socket.io)</li>
+			<ul>
+			    <li>triggered events from Pd via OSC</li>
+			</ul>
+		    </ul>
+		</ul>
+		</section>
+		<section>
+		    <h3>software tech stack cont.</h3>
+		    <ul>
+			<li>HTML/CSS/JS(CLJS)</li>
+			<ul>
+			    <li>client-facing view</li>
+			    <li>React/Reagent/JS - reactive visuals/info display</li>
+			    <li>Web Audio API/Tone.js - synths, samples</li>
+			    <li>Websocket communication with server via socket.io</li>
+			</ul>
+		    </ul>
+		</section>
+		<section>
+		    <h3>hardware tech stack</h3>
+		    <ul>
+			<li>laptop</li>
+			<li>audio interface</li>
+			<li>wireless router</li>
+		    </ul>
+		</section>
+	</section>
+	<section>
+	    <section>
+		<h3>technical considerations</h3>
+		<ul>
+		    <li>router/DNS</li>
+		    <ul>
+			<li>static IP (easy, /etc/network/interfaces on *nix) </li>
+		    </ul>
+		    <li>port number</li>
+		    <ul>
+			<li>custom port number</li>
+			<li>port 80 (Web): setcap 'cap_net_bind_service+3p' /usr/bin/nodejs (*nix)</li>
+		    </ul>
+		    <li>Apple/iOS - need user interaction to start audio context</li>
+		</ul>
+	    </section>
+	    <section>
+		<h3>technical considerations cont.</h3>
+		<ul>
+		    <li>latencies from WiFi (rhythmic/timing accuracy)</li>
+		    <li>auto-screen lock without interaction</li>
+		    <ul>
+			<li>NoSleep.js - https://github.com/richtr/NoSleep.js</li>
+		    </ul>
+		</ul>
+	    </section>
+	</section>
+	<section>
+	    <h3>further exploration</h3>
+	    <ul>
+		<li>not only for concert hall (installations)</li>
+		<li>streaming live sound - maybe Icecast/WebRTC/recording-loading sounds?</li>
+		<li>more sophisticated visualiations</li>
+		<ul>
+		    <li>P5.js, Canvas, Three.js, Quil,...</li>
+		</ul>
+		<li>greater user interactivity</li>
+		<ul>
+		    <li>many options for input (text, accelerometers, sensors, GUI)</li>
+		    <li>user control of sound, user supply of sound</li>
+		    <li>interactions: user-server, user-user</li>
+		</ul>
+	    </ul>
+	</section>
+	<section>
+	    <section>
+		<h3>Biblography</h3>
+		Kane, Joseph Nathan. Famous First Facts. The H.W. Wilson Company, 1964.<br><br>
+		Fantel, Hans. "Sound; Out of De Forest And Onto The Air Came Music." The New York Times, 14 Jan. 1990, p. 002030, www.nytimes.com/1990/01/14/arts/sound-out-of-de-forest-and-onto-the-air-came-music.html.<br><br>
+	    </section>
+	    <section>
+		<h3>Bibliography cont.</h3>
+		Sims, Michael. "Cavalleria Rusticana and I Pagliacci Crimes of Passion." Cavalleria Rusticana and I Pagliacci, www.concertoperaboston.org/cavalleria.html. <br><br>
+		Guglielmo Marconi - Biographical. NobelPrize.org. Nobel Media AB 2018. Sun. 14 Oct 2018. <https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/> <br><br>
+	    </section>
+	</section>
+
+      </div>
+    </div>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>
+    
+      
