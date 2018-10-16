@@ -11,7 +11,18 @@
 	  <h4>for percussion, electronics, and cell mobile devices</h4>
 	  <h3>by Derek Kwan</h3>
 	</section>
-	
+	<section>
+	    <h3>outline</h3>
+	    <ul>
+		<li>background info, compositional info, program</li>
+		<li>breakdown tech stack</li>
+		<ul>
+		    <li>use of chance procedures as improv aid</li>
+		    <li>technical considerations</li>
+		</ul>
+		<li>further explorations</li>
+	    </ul>
+	</section>
 	<section>
 	    <section><h2>background info</h2></section>
 	    <section>
@@ -97,6 +108,114 @@
 			<li>wireless router</li>
 		    </ul>
 		</section>
+	</section>
+	<section>
+	    <section>
+		<h2>Pure Data</h2>
+	    </section>
+	    <section>
+		<h3>Jobs</h3>
+		<ul>
+		    <li>audio for on-stage speakers</li>
+		    <ul>
+			<li>live input recording (attack-triggered) / processing</li>
+			<li>samples + synthesis</li>
+		    </ul>
+		    <li>user interface (controls, clocks, cues)</li>
+		    <li>scheduling and triggering</li>
+		    <ul>
+			<li>determine structure of piece (3 major sections)</li>
+		    </ul>
+		    <ul>
+			<li>communication with node.js server (OSC)</li>
+			<ul>
+			    <li>retrieve client list (base64)</li>
+			    <li>direct server to trigger events (WebSockets)</li>
+			</ul>
+		    </ul>
+		</ul>
+	    </section>
+	    <section>
+		<h3>Chance Operations</h3>
+		<ul>
+		    <li>overall section durations</li>
+		    <ul>
+			<li>randomly chosen within ranges to add up to at least seven minutes</li>
+		    </ul>
+		    <li>timings of events/subsections</li>
+		    <ul>
+			<li>approx. times with given ranges</li>
+			<li>perc. part cued as well! (sec. 2)</li>
+		    </ul>
+		    <li>specific contents of events</li>
+		    <ul>
+			<li>random selection of clients</li>
+			<li>random selection of sound files</li>
+			<li>random triggering of sound events</li>
+			<li>randomization of delay lines (section 2)</li>
+		    </ul>
+		</ul>
+	    </section>
+	    
+	</section>
+	<section>
+	    <section>
+		<h2>Node.js server</h2>
+	    </section>
+	    <section>
+		<h3>Jobs</h3>
+		<ul>
+		    <li>serve web page for clients</li>
+		    <li>keep track of indiv. connections via WebSockets (socket.io)</li>
+		    <ul>
+			<li>trigger events on all devices (broadcast)</li>
+			<li>trigger events on a specific device (emit)</li>
+		    </ul>
+		    <li>communicate with Pure Data (OSC)</li>
+		    <ul>
+			<li>provide list of connections (base64)</li>
+			<li>forward triggers from Pd to clients</li>
+		    </ul>
+		</ul>
+	    </section>
+	</section>
+	<section>
+	    <section>
+		<h2>Client (HTML/CSS/JS via CLJS)</h2>
+	    </section>
+	    <section>
+		<h3>Jobs</h3>
+		<ul>
+		    <li>client-facing interface loaded on devices</li>
+		    <ul>
+			<li>CSS, JS for dynamic background, React (Reagent) for dynamic text</li>
+		    </ul>
+		    <li>sound synthesis/playback (Web Audio API / Tone.js)</li>
+		    <ul>
+			<li>triggered by Node webserver (with visual feedback)</li>
+		    </ul>
+		</ul>
+	    </section>
+	    <section>
+		<h3>Chance Operations</h3>
+		<ul>
+		    <li>all sequences generated client-side</li>
+		    <ul>
+			<li>chopped samples (sec. 1), filtered noise (sec. 1), telegraph beeps (sec. 3)</li>
+			<li>freq / dur / Q / sample location / amp. / etc. </li>
+		    </ul>
+		    <li>start times of sequences</li>
+		    <ul>
+			<li>flags sent from OSC to start immediately or delayed</li>
+		    </ul>
+		    <li>other sound parameters</li>
+		    <ul>
+			<li>base freq. for modem synths (clicks/whine)</li>
+			<li>speed of modem clicks</li>
+			<li>freq of sine osc. for telegraph</li>
+		    </ul>
+		</ul>
+	    </section>
 	</section>
 	<section>
 	    <section>
