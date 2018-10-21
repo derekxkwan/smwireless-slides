@@ -232,7 +232,7 @@
 			<li>server/client</li>
 			<li>cons</li>
 			<ul>
-			    <li></li>
+			    <li>limited to browser capabilities/non-native</li>
 			</ul>
 		    </ul>
 		</ul>
@@ -240,9 +240,15 @@
 	    <section>
 		<h3>technical considerations</h3>
 		<ul>
-		    <li>router/DNS</li>
+		    <li>accessing hosted web site?</li>
 		    <ul>
 			<li>static IP (easy, /etc/network/interfaces on *nix) </li>
+			<li>router and DNS server?</li>
+			<ul>
+			    <li>OpenWrt (DNS)</li>
+			    <li>Dynamic DNS (host on computer with bind? to-do)</li>
+			</ul>
+			<li>qr-code direct to static ip</li>
 		    </ul>
 		    <li>port number</li>
 		    <ul>
@@ -270,13 +276,16 @@
 		<li>streaming live sound - maybe Icecast/WebRTC/recording-loading sounds?</li>
 		<li>more sophisticated visualiations</li>
 		<ul>
-		    <li>P5.js, Canvas, Three.js, Quil,...</li>
+		    <li>P5.js, Canvas, Three.js, Quil, AR.js...</li>
 		</ul>
 		<li>greater user interactivity</li>
 		<ul>
 		    <li>many options for input (text, accelerometers, sensors, GUI)</li>
 		    <li>user control of sound, user supply of sound</li>
 		    <li>interactions: user-server, user-user</li>
+		    <ul>
+			<li>user data</li>
+		    </ul>
 		</ul>
 	    </ul>
 	</section>
