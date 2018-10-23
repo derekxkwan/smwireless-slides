@@ -8,16 +8,18 @@
     <div class="reveal">
       <div class="slides">
 	<section>
+	    <h5>Bates Digital Music Symposium 2018</h5>
+	    <br>
 	  <h3>socketMusic: wireless (2015)</h3>
 	  <h4>for percussion, electronics, and cell mobile devices</h4>
 	  <h3>by Derek Kwan</h3>
-	  <h5>http(s)://derekxkwan.com</h5>
-	  <h5> https://derekxkwan.github.io/smwireless-slides/</h5>
+	  <h7>http(s)://derekxkwan.com</h7>
+	  <h7> https://derekxkwan.github.io/smwireless-slides/</h7>
 	</section>
 	<section>
-	    <h3>outline</h3>
+	    <h3>Outline</h3>
 	    <ul>
-		<li>background info, compositional info, program</li>
+		<li>general info (form/compositional details/aesthetics)</li>
 		<li>breakdown tech stack</li>
 		<ul>
 		    <li>use of chance procedures as improv aid</li>
@@ -27,9 +29,9 @@
 	    </ul>
 	</section>
 	<section>
-	    <section><h2>background info</h2></section>
+	    <section><h2>Background Info</h2></section>
 	    <section>
-		<h3>instrumentation</h3>
+		<h3>Instrumentation</h3>
 		<ul>
 		    <li>(improvised) percussion: snare drum, hi hat</li>
 		    <li>electronics: processed samples, processed percussion, synthesized sound</li>
@@ -37,7 +39,40 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>background</h3>
+		<h3>Form</h3>
+		<ul>
+		    <li>three large sections with contrasting textures + improv. styles</li>
+		    <ul>
+			<li>drone / modem</li>
+			<ul>
+			    <li>in part inspired by Contact opening scene (zoomout)</li>
+			    <li>textural improv on SD/HH with dreadlock brushes</li>
+			</ul>
+			<li>radio / static</li>
+			<ul>
+			    <li>based around 60 bpm pulse</li>
+			    <li>hihat rolls synced with radio/static</li>
+			</ul>
+		    </ul>
+		</ul>
+		    
+		</section>
+		<section>
+		    <h3>Form cont.</h3>
+		    <ul>
+			<li>(three large sections cont.)</li>
+			<ul>
+			    <li>telegraph</li>
+			    <ul>
+				<li>sea of morse code pulses imitated on HH/metal on SD</li>
+				<li>ends with brown noise swell</li>
+			    </ul>
+			    <li>Note: all durations and subevents determined at runtime in Pure Data</li>
+			</ul>
+		    </ul>
+	    </section>
+	    <section>
+		<h3>Background</h3>
 		<ul>
 		    <li>working at Stony Brook's Teaching Learning Lab (media lab) - wanted to apply computer programming to doctoral recital</li>
 		    <li>inspired by Steven Schick 2014 premiere of Lei Liang's <i>Trans</i> (2014) at Miller Theater (Columbia)</li>
@@ -49,7 +84,7 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>aesthetics</h3>
+		<h3>Aesthetics</h3>
 		<ul>
 		    <li>wireless - in content and medium</li>
 		    <li>breaking cultural (concert hall) norms</li>
@@ -66,7 +101,7 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>aesthetics cont.</h3>
+		<h3>Aesthetics cont.</h3>
 		<ul>
 		    <li>spatialization</li>
 		    <ul>
@@ -77,7 +112,7 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>sounds</h3>
+		<h3>Sounds</h3>
 		<ul>
 		    <li>majority of sounds reference wireless technology (samples, synthesis)</li>
 		    <ul>
@@ -91,7 +126,7 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>sounds cont.</h3>
+		<h3>Sounds cont.</h3>
 		<ul>
 		    <li>1200 baud modem (not quite wireless, but evokes the WiFi-enabled nature of the piece)</li>
 		    <li>other misc sounds (radio static, fake talk radio)</li>
@@ -100,13 +135,13 @@
 	    </section>
 	</section>
 	<section>
-	    <section><h2>technical details</h2></section>
+	    <section><h2>Technical Details</h2></section>
 	    <section>
-		<h3>software tech stack</h3>
+		<h3>Software Tech Stack</h3>
 		<ul>
 		    <li>Pure Data</li>
 		    <ul>
-			<li>sound for on-stage speakers, scheduling</li>
+			<li>sound for on-stage speakers, scheduling, cues</li>
 		    </ul>
 		    <li>Node.js (Macchiato/Clojurescript)</li>
 		    <ul>
@@ -120,7 +155,7 @@
 		</ul>
 		</section>
 		<section>
-		    <h3>software tech stack cont.</h3>
+		    <h3>Software Tech Stack cont.</h3>
 		    <ul>
 			<li>HTML/CSS/JS(CLJS)</li>
 			<ul>
@@ -132,10 +167,10 @@
 		    </ul>
 		</section>
 		<section>
-		    <h3>hardware tech stack</h3>
+		    <h3>Hardware Tech Stack</h3>
 		    <ul>
 			<li>laptop</li>
-			<li>audio interface</li>
+			<li>audio interface (+ mics)</li>
 			<li>wireless router</li>
 		    </ul>
 		</section>
@@ -145,14 +180,27 @@
 		<h2>Pure Data</h2>
 	    </section>
 	    <section>
+		<div class="card-img" height="80%" width="80%">
+		    <img src="res/smw-pdpatch.png" width="auto" max-height="50%"/>
+		</div>
+	    </section>
+	    <section>
 		<h3>Jobs</h3>
 		<ul>
 		    <li>audio for on-stage speakers</li>
 		    <ul>
-			<li>live input recording (attack-triggered) / processing</li>
+			<li>live input recording (attack-triggered) / processing (delays, FFT bin thresholding)</li>
 			<li>samples + synthesis</li>
 		    </ul>
 		    <li>user interface (controls, clocks, cues)</li>
+		    <ul>
+			<li>sec. 2 - cues for roll entrances 8th note before start and finish</li>
+		    </ul>
+		</ul>
+	    </section>
+	    <section>
+		<h3>Jobs cont.</h3>
+		<ul>
 		    <li>scheduling and triggering</li>
 		    <ul>
 			<li>determine structure of piece (3 major sections)</li>
@@ -250,10 +298,10 @@
 	</section>
 	<section>
 	    <section>
-		<h2>technical discussion</h2>
+		<h2>Technical Discussion</h2>
 	    </section>
 	    <section>
-		<h3>technical notes</h3>
+		<h3>Technical Notes</h3>
 		<ul>
 		    <li>why browser and not native?</li>
 		    <ul>
@@ -269,7 +317,7 @@
 		</ul>
 	    </section>
 	    <section>
-		<h3>technical considerations</h3>
+		<h3>Technical Considerations</h3>
 		<ul>
 		    <li>accessing hosted web site?</li>
 		    <ul>
@@ -277,19 +325,26 @@
 			<li>router and DNS server?</li>
 			<ul>
 			    <li>OpenWrt (DNS)</li>
-			    <li>Dynamic DNS (host on computer with bind? to-do)</li>
+			    <li>Dynamic DNS (host on computer with bind?)</li>
 			</ul>
 			<li>qr-code direct to static ip</li>
 		    </ul>
 		    <li>port number</li>
 		    <ul>
 			<li>custom port number</li>
-			<li>port 80 (Web): setcap 'cap_net_bind_service+3p' /usr/bin/nodejs (*nix)</li>
+			<li>port 80 (Web): setcap 'cap_net_bind_service+3p' /usr/bin/nodejs</li>
 		    </ul>
 		</ul>
 	    </section>
 	    <section>
-		<h3>technical considerations cont.</h3>
+		<h7>qr-code for static-ip addr. w/ page served on 8080</h7>
+		<div class="card-img" height="80%" width="80%">
+		    <img src="res/qr-large.png" width="auto" max-height="50%"/>
+		</div>
+		<h7>gen. w/  Racket Simple-Qr library (Chen Xiao)</h7>
+	    </section>
+	    <section>
+		<h3>Technical Considerations cont.</h3>
 		<ul>
 		    <li>Apple/iOS - need user interaction to start audio context</li>
 		    <li>latencies from WiFi (rhythmic/timing accuracy)</li>
@@ -301,7 +356,7 @@
 	    </section>
 	</section>
 	<section>
-	    <h3>further exploration</h3>
+	    <h3>Further Exploration</h3>
 	    <ul>
 		<li>not only for concert hall (installations)</li>
 		<li>streaming live sound - maybe Icecast/WebRTC/recording-loading sounds?</li>
@@ -323,18 +378,27 @@
 	<section>
 	    <section>
 		<h3>Biblography</h3>
-		"[Met Performance] CID:49210." MetOpera Database: The Metropolitan Opera Archives, Metropolitan Opera Association, archives.metoperafamily.org/archives/scripts/cgiip.exe/WService=BibSpeed/fullcit.w?xCID=49210&limit=2500&xBranch=ALL&xsdate=&xedate=&theterm=1910-11&x=0&xhomepath=&xhome=. Archive of December 3, 1910 Matinee Program Information<br><br>
+		<ul>
+		    <li>
+			"[Met Performance] CID:49210." MetOpera Database: The Metropolitan Opera Archives, Metropolitan Opera Association, archives.metoperafamily.org/archives/scripts/cgiip.exe/WService=BibSpeed/fullcit.w?xCID=49210&limit=2500&xBranch=ALL&xsdate=&xedate=&theterm=1910-11&x=0&xhomepath=&xhome=. Archive of December 3, 1910 Matinee Program Information</li>
+		</ul>
 	    </section>
 	    <section>
 		<h3>Bibliography cont.</h3>
-		Kane, Joseph Nathan. Famous First Facts. The H.W. Wilson Company, 1964.<br><br>
-		Fantel, Hans. "Sound; Out of De Forest And Onto The Air Came Music." The New York Times, 14 Jan. 1990, p. 002030, www.nytimes.com/1990/01/14/arts/sound-out-of-de-forest-and-onto-the-air-came-music.html.<br><br>
+		<ul>
+		    <li>
+			Kane, Joseph Nathan. Famous First Facts. The H.W. Wilson Company, 1964.</li>
+		    <li>Fantel, Hans. "Sound; Out of De Forest And Onto The Air Came Music." The New York Times, 14 Jan. 1990, p. 002030, www.nytimes.com/1990/01/14/arts/sound-out-of-de-forest-and-onto-the-air-came-music.html.</li>
+		</ul>
 
 	    </section>
 	    <section>
 		<h3>Bibliography cont.</h3>
-		Sims, Michael. "Cavalleria Rusticana and I Pagliacci Crimes of Passion." Cavalleria Rusticana and I Pagliacci, www.concertoperaboston.org/cavalleria.html. <br><br>
-		Guglielmo Marconi - Biographical. NobelPrize.org. Nobel Media AB 2018. Sun. 14 Oct 2018. <https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/> <br><br>
+		<ul>
+		    <li>
+			Sims, Michael. "Cavalleria Rusticana and I Pagliacci Crimes of Passion." Cavalleria Rusticana and I Pagliacci, www.concertoperaboston.org/cavalleria.html.</li>
+		    <li>Guglielmo Marconi - Biographical. NobelPrize.org. Nobel Media AB 2018. Sun. 14 Oct 2018. <https://www.nobelprize.org/prizes/physics/1909/marconi/biographical/> </li>
+		</ul>
 	    </section>
 	</section>
       </div>
