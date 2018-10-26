@@ -11,7 +11,7 @@
 	    <h5>Bates Digital Music Symposium 2018</h5>
 	    <br>
 	  <h3>socketMusic: wireless (2015)</h3>
-	  <h4>for percussion, electronics, and cell mobile devices</h4>
+	  <h4>for improvised percussion, electronic sound, and mobile devices</h4>
 	  <h3>by Derek Kwan</h3>
 	  <h7>http(s)://derekxkwan.com</h7>
 	  <h7> https://derekxkwan.github.io/smwireless-slides/</h7>
@@ -33,7 +33,7 @@
 	    <section>
 		<h3>Instrumentation</h3>
 		<ul>
-		    <li>(improvised) percussion: snare drum, hi hat</li>
+		    <li>(improvised) percussion: snare drum (+ found metal), hi hat</li>
 		    <li>electronics: processed samples, processed percussion, synthesized sound</li>
 		    <li>mobile devices: sounds triggered by web server</li>
 		</ul>
@@ -43,42 +43,59 @@
 		<ul>
 		    <li>three large sections with contrasting textures + improv. styles</li>
 		    <ul>
-			<li>drone / modem</li>
+			<li>drone + hiss / modem</li>
 			<ul>
 			    <li>in part inspired by Contact opening scene (zoomout)</li>
 			    <li>textural improv on SD/HH with dreadlock brushes</li>
-			</ul>
-			<li>radio / static</li>
-			<ul>
-			    <li>based around 60 bpm pulse</li>
-			    <li>hihat rolls synced with radio/static</li>
+			    <li>cell phones accumulate in radio samples / filtered noise bursts</li>
+			    <li>chopped/reversed input recordings</li>
 			</ul>
 		    </ul>
 		</ul>
-		    
-		</section>
-		<section>
-		    <h3>Form cont.</h3>
+		
+	    </section>
+	    <section>
+		<h3>Form cont.</h3>
+		<ul>
+		    <li>(three large sections cont.)</li>
 		    <ul>
-			<li>(three large sections cont.)</li>
+			<li>radio + static</li>
 			<ul>
-			    <li>telegraph</li>
+			    <li>based around 60 bpm pulse</li>
 			    <ul>
-				<li>sea of morse code pulses imitated on HH/metal on SD</li>
-				<li>ends with brown noise swell</li>
+				<li>delayed beeps + second roving beep at 59.7015 bpm</li>
 			    </ul>
-			    <li>Note: all durations and subevents determined at runtime in Pure Data</li>
+			    <li>hihat rolls synced with radio/static</li>
+			    <ul>
+				<li>multi-tap delay with each delay randomly panned</li>
+			    </ul>
+			    <li>cell phones imitate modem sound from end of sec 1 (enter sequentially)</li>
 			</ul>
 		    </ul>
+		</ul>
+	    </section>
+	    <section>
+		<h3>Form cont.</h3>
+		<ul>
+		    <li>(three large sections cont.)</li>
+		    <ul>
+			<li>telegraph</li>
+			<ul>
+			    <li>hiss + clicks on speakers</li>
+			    <li>sea of morse code pulses (cell phones) imitated on HH/metal on SD</li>
+			    <li>ends with brown noise swell</li>
+			</ul>
+			<li>Note: all durations and subevents determined at runtime in Pure Data</li>
+		    </ul>
+		</ul>
 	    </section>
 	    <section>
 		<h3>Background</h3>
 		<ul>
 		    <li>working at Stony Brook's Teaching Learning Lab (media lab) - wanted to apply computer programming to doctoral recital</li>
-		    <li>inspired by Steven Schick 2014 premiere of Lei Liang's <i>Trans</i> (2014) at Miller Theater (Columbia)</li>
+		    <li>inspiration - Steven Schick premiere - Lei Liang's <i>Trans</i> (2014) (Miller Theater, Columbia)</li>
 		    <ul>
 			<li>distributed stones to audience, signaled when to strike from stage</li>
-			<li>https://www.youtube.com/watch?v=5qg2Khbi1ww</li>
 		    </ul>
 		    <li>wanted an inexpensive way to do multichannel audio</li>
 		</ul>
@@ -107,7 +124,23 @@
 		    <ul>
 			<li>massively multichannel</li>
 			<li>immersivity (sound sources from audience)</li>
-			<li>chance-based location (depends on audience)</li>
+			<li>chance-based location and volume (depends on audience)</li>
+		    </ul>
+		</ul>
+	    </section>
+	    <section>
+		<h3>Aesthetics cont.</h3>
+		<ul>
+		    <li>randomization</li>
+		    <ul>
+			<li>hands-free organicity (division of duties)</li>
+			<li>computer as performer (living piece)</li>
+			<li>unpredictability (vs fixed-media/performer+tape)</li>
+			<li>"fuzzy"/aleatoric composing</li>
+			<ul>
+			    <li>composing in general outlines/proportions, leaving computer to fill out details</li>
+			    <li>specifying rates of triggering, chances of triggering, ranges of parameters</li>
+			</ul>
 		    </ul>
 		</ul>
 	    </section>
@@ -139,11 +172,11 @@
 	    <section>
 		<h3>Software Tech Stack</h3>
 		<ul>
-		    <li>Pure Data</li>
+		    <li>Pure Data - brains</li>
 		    <ul>
 			<li>sound for on-stage speakers, scheduling, cues</li>
 		    </ul>
-		    <li>Node.js (Macchiato/Clojurescript)</li>
+		    <li>Node.js (Macchiato/Clojurescript) - messasge forwarder</li>
 		    <ul>
 			<li>host web page</li>
 			<li>OSC communication with Pure Data</li>
@@ -157,7 +190,7 @@
 		<section>
 		    <h3>Software Tech Stack cont.</h3>
 		    <ul>
-			<li>HTML/CSS/JS(CLJS)</li>
+			<li>HTML/CSS/JS(CLJS) - message implementer</li>
 			<ul>
 			    <li>client-facing view</li>
 			    <li>React/Reagent/JS - reactive visuals/info display</li>
@@ -189,11 +222,12 @@
 		<ul>
 		    <li>audio for on-stage speakers</li>
 		    <ul>
-			<li>live input recording (attack-triggered) / processing (delays, FFT bin thresholding)</li>
+			<li>live input recording (attack-triggered at max rate of 20s) / processing (rev./chopped, delays, FFT bin mag. thresholding)</li>
 			<li>samples + synthesis</li>
 		    </ul>
 		    <li>user interface (controls, clocks, cues)</li>
 		    <ul>
+			<li>clocks for overall piece, current section, current section duration, next event timing</li>
 			<li>sec. 2 - cues for roll entrances 8th note before start and finish</li>
 		    </ul>
 		</ul>
@@ -223,19 +257,25 @@
 		    </ul>
 		    <li>timings of events/subsections</li>
 		    <ul>
-			<li>approx. times with given ranges</li>
+			<li>approx. times with given ranges (smw-nextsubsec 50 7 -> 50 seconds in given section +/- 7)</li>
 			<li>perc. part cued as well! (sec. 2)</li>
-		    </ul>
-		    <li>specific contents of events</li>
-		    <ul>
-			<li>random selection of clients</li>
-			<li>random selection of sound files</li>
-			<li>random triggering of sound events</li>
-			<li>randomization of delay lines (section 2)</li>
 		    </ul>
 		</ul>
 	    </section>
-	    
+	    <section>
+		<h3>Chance Operations cont.</h3>
+		<ul>
+		    <li>specific contents of events</li>
+		    <ul>
+			<li>random selection of given range of clients</li>
+			<li>random selection and playback location of sound files (sec. 2)</li>
+			<li>randomization of parameters of synthesized sounds (sec.1 drone)</li>
+			<li>random triggering (and selection of params within given ranges) of samples</li>
+			<li>randomization of delay lines (section 2)</li>
+		    </ul>
+		    <li>all based around abstractions of [random] object (LCG)</li>
+		</ul>
+	    </section>
 	</section>
 	<section>
 	    <section>
@@ -283,19 +323,19 @@
 	    <section>
 		<h3>Chance Operations</h3>
 		<ul>
-		    <li>all sequences generated client-side</li>
+		    <li>all sequences generated client-side (audio.cljs)</li>
 		    <ul>
 			<li>chopped samples (sec. 1), filtered noise (sec. 1), telegraph beeps (sec. 3)</li>
 			<li>freq / dur / Q / sample location / amp. / etc. </li>
 		    </ul>
-		    <li>start times of sequences</li>
+		    <li>start times of sequences (client.cljs)</li>
 		    <ul>
-			<li>flags sent from OSC to start immediately or delayed</li>
+			<li>flags from OSC for immed. start / delayed</li>
 		    </ul>
 		    <li>other sound parameters</li>
 		    <ul>
 			<li>base freq. for modem synths (clicks/whine)</li>
-			<li>speed of modem clicks</li>
+			<li>speed of modem clicks (subdivisions of 4s)</li>
 			<li>freq of sine osc. for telegraph</li>
 		    </ul>
 		</ul>
@@ -334,9 +374,8 @@
 			</ul>
 			<li>qr-code direct to static ip</li>
 		    </ul>
-		    <li>port number</li>
+		    <li>port number (port 80/custom port)</li>
 		    <ul>
-			<li>custom port number</li>
 			<li>port 80 (Web): setcap 'cap_net_bind_service+3p' /usr/bin/nodejs</li>
 		    </ul>
 		</ul>
@@ -365,7 +404,7 @@
 	    <ul>
 		<li>not only for concert hall (installations)</li>
 		<li>streaming live sound - maybe Icecast/WebRTC/recording-loading sounds?</li>
-		<li>more sophisticated visualiations</li>
+		<li>more sophisticated visualizations</li>
 		<ul>
 		    <li>P5.js, Canvas, Three.js, Quil, AR.js...</li>
 		</ul>
